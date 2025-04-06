@@ -1,0 +1,27 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spend Management App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Spend Management App</h2>
+        
+        <form id="expense-form">
+            <input type="text" id="expense-name" placeholder="Expense Name" required>
+            <input type="number" id="expense-amount" placeholder="Amount" required>
+            <input type="date" id="expense-date" required>
+            <button type="submit">Add Expense</button>
+            
+        </form>
+
+        <h3>Total Spent: $<span id="total-spent">0</span></h3>
+
+        <ul id="expense-list"></ul>
+    </div>
+
+    <script src="main.js"></script>
+</body> 
