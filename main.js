@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", loadExpenses);
+// it makes it wait until the html pages is fully loaded
 
 const form = document.getElementById("expense-form");
 const expenseList = document.getElementById("expense-list");
@@ -55,7 +56,7 @@ function updateTotal() {
 }
 
 function loadExpenses() {
-    expenseList.innerHTML = ""; // Clear the list before loading
+    expenseList.innerHTML = ""; 
     expenses.forEach((expense, index) => addExpenseToList(expense, index));
     updateTotal();
 }
@@ -63,16 +64,16 @@ function loadExpenses() {
 function deleteExpense(index) {
     expenses.splice(index, 1);
     localStorage.setItem("expenses", JSON.stringify(expenses));
-    loadExpenses(); // Reload the list
+    loadExpenses(); 
 }
 
 function toggleComplete(index) {
     expenses[index].completed = !expenses[index].completed;
     localStorage.setItem("expenses", JSON.stringify(expenses));
-    loadExpenses(); // Reload to reflect changes
+    loadExpenses(); 
 }
 
-// ✏ Edit Expense Function
+
 function editExpense(index) {
     const newName = prompt("Enter new expense name:", expenses[index].name);
     const newAmount = parseFloat(prompt("Enter new expense amount:", expenses[index].amount));
@@ -94,7 +95,6 @@ searchInput.addEventListener("input", function() {
         .forEach((expense, index) => addExpenseToList(expense, index));
 });
 
-// 💰 Set Budget Function
 budgetInput.addEventListener("input", function() {
     budget = parseFloat(budgetInput.value) || 0;
     localStorage.setItem("budget", budget);
