@@ -43,17 +43,7 @@ function addExpenseToList(expense, index) {
     expenseList.appendChild(li);
 }
 
-function updateTotal() {
-    const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
-    totalSpent.textContent = total.toFixed(2);
 
-    if (budget > 0 && total > budget) {
-        budgetAlert.textContent = "⚠ Budget Exceeded!";
-        budgetAlert.style.color = "red";
-    } else {
-        budgetAlert.textContent = "";
-    }
-}
 
 function loadExpenses() {
     expenseList.innerHTML = ""; 
@@ -86,14 +76,7 @@ function editExpense(index) {
     }
 }
 
-searchInput.addEventListener("input", function() {
-    const searchValue = searchInput.value.toLowerCase();
-    expenseList.innerHTML = "";
-    
-    expenses
-        .filter(expense => expense.name.toLowerCase().includes(searchValue))
-        .forEach((expense, index) => addExpenseToList(expense, index));
-});
+
 
 budgetInput.addEventListener("input", function() {
     budget = parseFloat(budgetInput.value) || 0;
